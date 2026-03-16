@@ -106,7 +106,7 @@ export default function Home() {
               <div className="relative h-96">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent to-accent-dark rounded-2xl rotate-12 transform hover:rotate-6 transition-all duration-500 shadow-2xl overflow-hidden group">
                   <img 
-                    src="https://images.unsplash.com/photo-1625505826533-5c80aca7d656?w=400" 
+                    src="https://s7ap1.scene7.com/is/image/incredibleindia/netarhat-dam-ranchi-jharkhand-2-attr-hero?qlt=82&ts=1727010840630" 
                     alt="Netarhat"
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                   />

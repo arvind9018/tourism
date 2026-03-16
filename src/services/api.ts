@@ -54,7 +54,7 @@ const mockDestinations: Destination[] = [
     id: 1,
     name: "Netarhat",
     district: "Latehar",
-    image: "https://images.unsplash.com/photo-1625505826533-5c80aca7d656?w=400",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Pine_trees_of_Netarhat_Hill_station.jpg",
     rating: 4.5,
     description: "Beautiful hill station in Jharkhand",
     category: "Hill",
@@ -64,7 +64,7 @@ const mockDestinations: Destination[] = [
     id: 2,
     name: "Hundru Falls",
     district: "Ranchi",
-    image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=400",
+    image: "https://i.ytimg.com/vi/d9zJKKJRIdM/sddefault.jpg",
     rating: 4.3,
     description: "Magnificent waterfall near Ranchi",
     category: "Waterfall",
@@ -84,7 +84,7 @@ const mockDestinations: Destination[] = [
     id: 4,
     name: "Betla National Park",
     district: "Latehar",
-    image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=400",
+    image: "https://currentaffairs.adda247.com/wp-content/uploads/multisite/sites/5/2025/07/23111157/In-Which-State-is-Betla-National-Park-Located.png",
     rating: 4.6,
     description: "One of India's first tiger reserves",
     category: "Wildlife",
@@ -94,7 +94,7 @@ const mockDestinations: Destination[] = [
     id: 5,
     name: "Parasnath Hill",
     district: "Giridih",
-    image: "https://images.unsplash.com/photo-1626621341517-bf5d39b7711b?w=400",
+    image: "https://images.trvl-media.com/place/553248635974899511/f7a1deb6-aa4c-487e-981f-11577751826a.jpg",
     rating: 4.7,
     description: "Highest peak in Jharkhand, Jain pilgrimage site",
     category: "Pilgrimage",
@@ -104,7 +104,7 @@ const mockDestinations: Destination[] = [
     id: 6,
     name: "Tagore Hill",
     district: "Ranchi",
-    image: "https://images.unsplash.com/photo-1626621341517-bf5d39b7711b?w=400",
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerkBJQZR1vfN9VeWcs8-GnOzpRUrj3tP2LU1uDC3CstasAZxZOnyTWuaAiQPvG0siUnFPb5eFbvZpO9fuE_C3s5rIA1vECkrR1JzZDUzwjM-7HvhFr8UWF6ntypFKmRG5iQFUqd=s1360-w1360-h1020-rw",
     rating: 4.2,
     description: "Scenic hill associated with Rabindranath Tagore",
     category: "Culture",
@@ -162,7 +162,7 @@ const mockProducts: Product[] = [
     village: "Khunti",
     price: 2500,
     rating: 4.8,
-    image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400",
+    image: "https://prativash.com/cdn/shop/products/WhatsAppImage2023-04-05at3.50.48PM_1200x1200.jpg?v=1680692021",
     description: "Traditional Dokra metal craft"
   },
   {
@@ -173,7 +173,7 @@ const mockProducts: Product[] = [
     village: "Amadubi",
     price: 1800,
     rating: 4.6,
-    image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=400",
+    image: "https://villagesquare.in/wp-content/uploads/2023/10/Lead-01-Paitkar-scroll-paintings-Photo-2.jpg",
     description: "Ancient scroll painting art"
   },
   {
@@ -184,7 +184,7 @@ const mockProducts: Product[] = [
     village: "Simdega",
     price: 900,
     rating: 4.5,
-    image: "https://images.unsplash.com/photo-1525085475161-c80cdeb0b3c1?w=400",
+    image: "https://m.media-amazon.com/images/I/51z2ALMkiSL.jpg",
     description: "Handcrafted bamboo basket"
   }
 ]

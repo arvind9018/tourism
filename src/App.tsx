@@ -23,7 +23,7 @@ import ForgotPassword from "./pages/ForgotPassword"
 import ResetPassword from "./pages/ResetPassword"
 import VerifyEmail from "./pages/VerifyEmail"
 import Unauthorized from "./pages/Unauthorized"
-
+import Contact from "./pages/Contact"
 import { checkApiHealth } from "./services/api"
 import { isAuthenticated, getUserRole, initAuth } from "./services/authApi"
 
@@ -77,7 +77,7 @@ export default function App() {
     <BrowserRouter>
       <Navbar />
       
-      {/* API Status Banner */}
+      {/* API Status Banner
       {process.env.NODE_ENV === 'development' && (
         <div className={`text-center text-sm py-1 ${
           apiStatus === 'connected' ? 'bg-green-100 text-green-800' : 
@@ -88,7 +88,7 @@ export default function App() {
            apiStatus === 'disconnected' ? '⚠️ Backend not connected - Using mock data' : 
            '🔄 Checking backend connection...'}
         </div>
-      )}
+      )} */}
 
       <Routes>
         {/* Public Routes */}
@@ -98,7 +98,7 @@ export default function App() {
         <Route path="/map" element={<MapView />} />
         <Route path="/homestays" element={<Homestays />} />
         <Route path="/marketplace" element={<Marketplace />} />
-        
+        <Route path="/contact" element={<Contact />} />
         {/* Auth Routes (Public but redirect if logged in) */}
         <Route path="/login" element={
           <PublicRoute>

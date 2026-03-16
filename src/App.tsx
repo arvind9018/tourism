@@ -24,6 +24,8 @@ import ResetPassword from "./pages/ResetPassword"
 import VerifyEmail from "./pages/VerifyEmail"
 import Unauthorized from "./pages/Unauthorized"
 import Contact from "./pages/Contact"
+
+import ScrollToTop from "./components/ScrollToTop"
 import { checkApiHealth } from "./services/api"
 import { isAuthenticated, getUserRole, initAuth } from "./services/authApi"
 
@@ -75,6 +77,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Navbar />
       
       {/* API Status Banner

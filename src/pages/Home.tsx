@@ -307,7 +307,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <BlogCard
-              image="https://images.unsplash.com/photo-1625505826533-5c80aca7d656?w=400"
+              image="https://www.google.com/imgres?q=hidden%20waterfall%20in%20jharkhand&imgurl=https%3A%2F%2Ftripxl.com%2Fblog%2Fwp-content%2Fuploads%2F2024%2F09%2FNetarhat-waterfalls-OG-Image.jpg&imgrefurl=https%3A%2F%2Ftripxl.com%2Fblog%2Fnetarhat-waterfalls%2F&docid=RzD3McWrLqJaCM&tbnid=TyrIA_NQisL_uM&vet=12ahUKEwia4b3h3q2TAxXV-TgGHcKgBjoQnPAOegQIGBAB..i&w=850&h=425&hcb=2&ved=2ahUKEwia4b3h3q2TAxXV-TgGHcKgBjoQnPAOegQIGBAB"
               title="Hidden Waterfalls of Jharkhand"
               excerpt="Discover 5 lesser-known waterfalls perfect for monsoon trekking..."
               date="Mar 15, 2024"

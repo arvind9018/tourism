@@ -24,11 +24,33 @@ import ResetPassword from "./pages/ResetPassword"
 import VerifyEmail from "./pages/VerifyEmail"
 import Unauthorized from "./pages/Unauthorized"
 import Contact from "./pages/Contact"
+import Payment from './pages/Payment';
+import PaymentSuccess from './pages/PaymentSuccess';
+import BookingDetails from './pages/BookingDetails';
+
+import { AuthProvider } from "./context/AuthContext"
 
 import ScrollToTop from "./components/ScrollToTop"
 import { checkApiHealth } from "./services/api"
 import { isAuthenticated, getUserRole, initAuth } from "./services/authApi"
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
+import Feedback from './pages/Feedback';
+import FAQ from './pages/FAQ';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import Accessibility from './pages/Accessibility';
+import CookiePolicy from './pages/CookiePolicy';
+import Disclaimer from './pages/Disclaimer';
+import HelpCenter from './pages/HelpCenter';
+import TravelGuidelines from './pages/TravelGuidelines';
+import SafetyAlerts from './pages/SafetyAlerts';
+import VRExperience from './pages/VRExperience';
+
+
+import { CartProvider } from './context/CartContext';
+import Cart from './pages/Cart';
+const GOOGLE_CLIENT_ID = '1067197050357-a7jddp1e1dkv1u7l7jm4almn9gclu5o4.apps.googleusercontent.com';
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles = [] }: { 
   children: React.ReactNode; 
@@ -77,6 +99,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    <CartProvider>
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+    
     <ScrollToTop />
       <Navbar />
       
@@ -101,7 +126,22 @@ export default function App() {
         <Route path="/map" element={<MapView />} />
         <Route path="/homestays" element={<Homestays />} />
         <Route path="/marketplace" element={<Marketplace />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} /><Route path="/feedback" element={<Feedback />} />
+<Route path="/faq" element={<FAQ />} />
+<Route path="/privacy" element={<PrivacyPolicy />} />
+<Route path="/terms" element={<TermsOfService />} />
+<Route path="/accessibility" element={<Accessibility />} />
+<Route path="/cookies" element={<CookiePolicy />} />
+<Route path="/disclaimer" element={<Disclaimer />} />
+<Route path="/help" element={<HelpCenter />} />
+<Route path="/guidelines" element={<TravelGuidelines />} />
+<Route path="/safety" element={<SafetyAlerts />} />
+<Route path="/vr-experience" element={<VRExperience />} />
+<Route path="/payment" element={<Payment />} />
+<Route path="/payment-success" element={<PaymentSuccess />} />
+<Route path="/bookings/:id" element={<BookingDetails />} />
+<Route path="/cart" element={<Cart />} />
+
         {/* Auth Routes (Public but redirect if logged in) */}
         <Route path="/login" element={
           <PublicRoute>
@@ -220,6 +260,10 @@ export default function App() {
       </Routes>
       
       <Footer />
+
+      
+      </GoogleOAuthProvider>
+        </CartProvider>
     </BrowserRouter>
   )
 }

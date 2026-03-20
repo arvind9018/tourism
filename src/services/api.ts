@@ -198,7 +198,7 @@ const mockStats: StatsData = {
 }
 
 // Flag to use mock data (set to false when backend is ready)
-const USE_MOCK_DATA = true
+const USE_MOCK_DATA = false
 
 // ==================== STATS API ====================
 
@@ -567,19 +567,30 @@ export async function fetchProductsByCategory(category: string): Promise<Product
  * Check API health
  * @returns Promise<object>
  */
-export async function checkApiHealth() {
+// export async function checkApiHealth() {
+//   try {
+//     const response = await api.get('/health')
+//     return response.data
+//   } catch (error) {
+//     console.error('API health check failed:', error)
+//     return { 
+//       status: 'unhealthy', 
+//       database: 'disconnected',
+//       usingMockData: USE_MOCK_DATA 
+//     }
+//   }
+// }
+
+
+export const checkApiHealth = async () => {
   try {
-    const response = await api.get('/health')
-    return response.data
+    const response = await axios.get('http://localhost:5000/health');
+    return response.data;
   } catch (error) {
-    console.error('API health check failed:', error)
-    return { 
-      status: 'unhealthy', 
-      database: 'disconnected',
-      usingMockData: USE_MOCK_DATA 
-    }
+    console.error('Health check failed:', error);
+    return { status: 'unhealthy', database: 'disconnected' };
   }
-}
+};
 
 // ==================== UTILITY FUNCTIONS ====================
 

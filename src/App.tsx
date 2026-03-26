@@ -35,6 +35,11 @@ import { checkApiHealth } from "./services/api"
 import { isAuthenticated, getUserRole, initAuth } from "./services/authApi"
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
+
+//chatbot
+import ChatBot from "../chatbot/frontend/components/ChatBot"
+import ChatBotLauncher from "./components/ChatBotLauncher"
+
 import Feedback from './pages/Feedback';
 import FAQ from './pages/FAQ';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -241,6 +246,8 @@ export default function App() {
             <div>Earnings Page</div>
           </ProtectedRoute>
         } />
+          {/* Chatbot Page */}
+        <Route path="/chatbot" element={<ChatBot />} />
         
         {/* Utility Pages */}
         <Route path="/unauthorized" element={<Unauthorized />} />
@@ -258,6 +265,8 @@ export default function App() {
           </div>
         } />
       </Routes>
+       {/* Floating Chatbot Icon */}
+      <ChatBot />
       
       <Footer />
 

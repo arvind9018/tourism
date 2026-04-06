@@ -1,23 +1,21 @@
 // src/pages/MapView.tsx
-import 'ol/ol.css'
 import { useEffect, useRef, useState } from "react"
-import Map from "ol/Map"
-import View from "ol/View"
-import TileLayer from "ol/layer/Tile"
-import VectorLayer from "ol/layer/Vector"
-import VectorSource from "ol/source/Vector"
-import { OSM } from "ol/source"
-import { fromLonLat } from "ol/proj"
-import Feature from "ol/Feature"
-import Point from "ol/geom/Point"
-import LineString from "ol/geom/LineString"
-import Polygon from "ol/geom/Polygon"
-import { Style, Fill, Stroke, Circle as CircleStyle } from "ol/style"
-import Overlay from "ol/Overlay"
-import { defaults as defaultControls } from "ol/control"
-import GeoJSON from "ol/format/GeoJSON"
-
-
+import Map from 'ol/Map'
+import View from 'ol/View'
+import TileLayer from 'ol/layer/Tile'
+import VectorLayer from 'ol/layer/Vector'
+import VectorSource from 'ol/source/Vector'
+import { OSM } from 'ol/source'
+import { fromLonLat } from 'ol/proj'
+import Feature from 'ol/Feature'
+import Point from 'ol/geom/Point'
+import LineString from 'ol/geom/LineString'
+import Polygon from 'ol/geom/Polygon'
+import { Style, Fill, Stroke, Circle as CircleStyle } from 'ol/style'
+import Overlay from 'ol/Overlay'
+import { defaults as defaultControls } from 'ol/control'
+import GeoJSON from 'ol/format/GeoJSON'
+import 'ol/ol.css'
 // Sample data for Jharkhand destinations
 const destinations = [
   { name: "Netarhat", coords: [84.2667, 23.4833], type: "hill", district: "Latehar" },

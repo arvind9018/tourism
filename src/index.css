@@ -70,7 +70,6 @@ html {
   transform: translateY(-2px);
 }
 
-
 /* Add to your global CSS */
 .ol-popup {
   position: absolute;
@@ -138,42 +137,6 @@ html {
 .ol-popup {
   animation: popIn 0.2s ease-out;
 }
-
-
-/* Add to your index.css or App.css */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-out;
-}
-
-/* Ensure text is visible on all backgrounds */
-.text-secondary {
-  color: #e5e7eb; /* Lighter gray for better contrast */
-}
-
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  footer .grid {
-    gap: 2rem;
-  }
-  
-  footer .text-sm {
-    font-size: 0.875rem;
-  }
-}
-
-
 /* Add to your index.css or App.css */
 
 @keyframes float {
@@ -203,21 +166,14 @@ html {
   }
 }
 
-@keyframes spin-slow {
+@keyframes slideDown {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes bounce-slow {
-  0%, 100% {
+    opacity: 1;
     transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
   }
 }
 
@@ -245,26 +201,10 @@ html {
   animation: float-slow 8s ease-in-out infinite;
 }
 
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 3s ease-in-out infinite;
+.animate-slideDown {
+  animation: slideDown 0.5s ease-out;
 }
 
 .animate-shake {
   animation: shake 0.5s ease-in-out;
-}
-
-/* Glass morphism effect */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Smooth transitions */
-.transition-all {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

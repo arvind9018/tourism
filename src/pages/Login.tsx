@@ -1,6 +1,10 @@
 // pages/Login.tsx
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+
+import { useGoogleLogin } from '@react-oauth/google';
+import FacebookLogin from '@greatsumini/react-facebook-login';
+
 import { loginUser } from '../services/authApi';
 
 export default function Login() {
@@ -11,7 +15,60 @@ export default function Login() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+// Replace with your Facebook App ID
+  const FACEBOOK_APP_ID = '3014044502129811';
 
+  // Google Login
+  const googleLogin = useGoogleLogin({
+  onSuccess: async (tokenResponse) => {
+    try {
+      setLoading(true);
+      // Send to your backend
+      const response = await fetch('http://localhost:5000/api/auth/google', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ access_token: tokenResponse.access_token })
+      });
+      const data = await response.json();
+      if (data.success) {
+        localStorage.setItem('token', data.data.token);
+        localStorage.setItem('user', JSON.stringify(data.data.user));
+        navigate('/');
+      }
+    } catch (error) {
+      setError('Google login failed');
+    } finally {
+      setLoading(false);
+    }
+  },
+  
+});
+
+
+  // Facebook Login
+  const handleFacebookSuccess = async (response: any) => {
+    try {
+      setLoading(true);
+      const apiResponse = await fetch('http://localhost:5000/api/auth/facebook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accessToken: response.accessToken, userID: response.userID })
+      });
+
+      const data = await apiResponse.json();
+      if (!apiResponse.ok || !data.success) {
+        throw new Error(data.message || 'Facebook authentication failed');
+      }
+
+      localStorage.setItem('token', data.data.token);
+      localStorage.setItem('user', JSON.stringify(data.data.user));
+      navigate('/');
+    } catch (error: any) {
+      setError(error.message || 'Facebook login failed');
+    } finally {
+      setLoading(false);
+    }
+  };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
@@ -212,6 +269,8 @@ export default function Login() {
               </p>
             </form>
 
+              
+
             {/* Social Login */}
             <div className="mt-8">
               <div className="relative">
@@ -223,16 +282,34 @@ export default function Login() {
                 </div>
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                <button className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-200 rounded-xl hover:bg-gray-50 transition group">
-                  <span className="text-xl group-hover:scale-110 transition">📧</span>
-                  <span className="text-sm text-gray-600">Google</span>
-                </button>
-                <button className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-200 rounded-xl hover:bg-gray-50 transition group">
-                  <span className="text-xl group-hover:scale-110 transition">📘</span>
-                  <span className="text-sm text-gray-600">Facebook</span>
-                </button>
-              </div>
+              {/* OAuth Buttons */}
+            <div className="space-y-3 mb-6">
+              <button
+                onClick={() => googleLogin()}
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition group"
+              >
+                <img src="https://www.google.com/favicon.ico" alt="Google" className="w-5 h-5" />
+                <span className="text-gray-700 font-medium">Continue with Google</span>
+              </button>
+
+              <FacebookLogin
+                appId={FACEBOOK_APP_ID}
+                autoLoad={false}
+                fields="name,email,picture"
+                onSuccess={handleFacebookSuccess}
+                render={renderProps => (
+                  <button
+                    onClick={renderProps.onClick}
+                    disabled={loading}
+                    className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition group"
+                  >
+                    <img src="https://www.facebook.com/favicon.ico" alt="Facebook" className="w-5 h-5" />
+                    <span className="text-gray-700 font-medium">Continue with Facebook</span>
+                  </button>
+                )}
+              />
+            </div>
             </div>
           </div>
         </div>
